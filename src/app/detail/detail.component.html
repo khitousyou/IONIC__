@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ film.Title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Fermer</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img [src]="film.Poster" alt="{{ film.Title }}" />
+    <ion-card-header>
+      <ion-card-title>{{ film.Title }}</ion-card-title>
+      <ion-card-subtitle>{{ film.Year }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Genre: {{ film.Genre }}</p>
+      <p>Imdb Rating: {{ film.ImdbRating }}</p>
+      <p>Plot: {{ film.Plot }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,27 +1,36 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+/* Style pour le <ion-card> */
+ion-card {
+  max-width: 400px; /* Ajuste la largeur maximale du card */
+  margin: 20px auto; /* Espace autour du card, centré horizontalement */
+  border-radius: 8px; /* Coins arrondis pour un look moderne */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère pour profondeur */
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* Style pour l'image à l'intérieur du <ion-card> */
+ion-card img {
+  width: 100%; /* Largeur de l'image égale à 100% de la largeur du card */
+  height: 200px; /* Hauteur fixe pour l'image */
+  object-fit: cover; /* Ajuste l'image pour couvrir l'espace sans déformation */
+  border-bottom: 1px solid #ddd; /* Bordure en bas de l'image */
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+/* Style pour le <ion-card-header> */
+ion-card-header {
+  padding: 8px; /* Espace autour du header */
 }
 
-#container a {
-  text-decoration: none;
+/* Style pour le titre et le sous-titre dans le <ion-card-header> */
+ion-card-title {
+  font-size: 1.2em; /* Taille du titre */
+  margin: 4px 0; /* Espacement entre le titre et le sous-titre */
+}
+
+ion-card-subtitle {
+  font-size: 0.9em; /* Taille du sous-titre */
+  color: #666; /* Couleur du sous-titre */
+}
+
+/* Style pour le <ion-card-content> */
+ion-card-content {
+  padding: 8px; /* Espace autour du contenu */
 }

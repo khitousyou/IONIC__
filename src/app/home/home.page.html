@@ -1,20 +1,100 @@
-<ion-header [translucent]="true">
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    here
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+</div>
+
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>App Name</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        Rechercher un film par : 
+      </ion-label>
+      <ion-select [(ngModel)]="type"  aria-label="Favorite Fruit" (ionChange)="searchChanged($event)">
+        <ion-select-option value="movie">Films</ion-select-option>
+        <ion-select-option value="series">Séries</ion-select-option>
+        <ion-select-option value="episode">Episodes</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-searchbar #value [debounce]="1000" (ionInput)="handleInput(value.value)"></ion-searchbar>
+
+
+
+
+  <ion-card *ngFor="let item of films" (click)="openFilmDetail(item)">
+    <img alt="Silhouette of mountains" [src]="item.Poster" />
+    <ion-card-header>
+      <ion-card-title>{{item.Title}}</ion-card-title>
+      <ion-card-subtitle>{{ item.Year }}</ion-card-subtitle>
+      <ion-card-subtitle> {{ item.Type }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      Here's a small text description for the card content. Nothing more, nothing less.
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>
+
+
+<!-- Bottom Navigation -->
+<ion-footer>
+  <ion-tab-bar>
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label (click)="Accueil()">Accueil</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Recherche</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="upcoming">
+      <ion-icon name="time"></ion-icon>
+      <ion-label>Prochainement</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Mon Compte</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
